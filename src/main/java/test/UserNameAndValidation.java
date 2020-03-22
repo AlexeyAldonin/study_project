@@ -3,7 +3,6 @@ package test;
 import java.util.Scanner;
 
 public class UserNameAndValidation {
-    String name;
 
     public static String regName() {
         System.out.println("Введите имя:");
@@ -36,9 +35,9 @@ public class UserNameAndValidation {
     }
 
     public static int enterUserIntention() {
-        System.out.println("Чтобы сыграть в игру Угадай число, введите 1.");
-        System.out.println("Чтобы сыграть в игру Загадай число, введите 2");
-        System.out.println("Для выхода введите 0.");
+        System.out.println("Чтобы сыграть в игру <<Угадай число>>, введите 1" +
+                "\nЧтобы сыграть в игру <<Загадай число>>, введите 2" +
+                "\nДля выхода введите 0");
         return new Scanner(System.in).nextInt();
     }
 }

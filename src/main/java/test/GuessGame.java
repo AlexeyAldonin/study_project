@@ -4,29 +4,28 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class GuessGame {
-    private static int a = 0;
-    private static int b = 100;
-    public static final int exitValue = a - 1;
+    private static int minValue = 0;
+    private static int maxValue = 100;
+    public static final int EXIT_VALUE = minValue - 1;
     private static Random random = new Random();
 
     public static void welcome(){
-        System.out.println("Итак, Вы выбрали игру 1, <<Угадай число>>.");
-        System.out.println("Мной загадано число от " + a + " до " + b);
-        System.out.println("Вам предстоит угадать это число.");
+        System.out.println("Итак, Вы выбрали игру 1, <<Угадай число>>" +
+                "\nМной загадано число от " + minValue + " до " + maxValue +
+                "\nВам предстоит угадать это число.");
     }
 
     public static int createRandomNumber() {
-        return random.nextInt((b - a) + 1) + a;
+        return random.nextInt((maxValue - minValue) + 1) + minValue;
     }
 
     public static int enterUserNumber() {
-        System.out.println("введите Ваш вариант числа от " + a + " до " + b + "...");
-        System.out.println("Для выхода введите " + exitValue);
+        System.out.println("введите Ваш вариант числа от " + minValue + " до " + maxValue + "..." +
+                "\nДля выхода введите " + EXIT_VALUE);
         return new Scanner(System.in).nextInt();
     }
-    public static boolean checkEnteredNumberFormat(int n) {
-        if (n >= (a - 1) && n <= b) return true;
-        return false;
+    public static boolean checkEnteredNumberFormat(int enteredNumber) {
+        return enteredNumber >= (minValue - 1) && enteredNumber <= maxValue;
     }
 
     public static void compareWithRandom(int userNumber, int randomNumber) {

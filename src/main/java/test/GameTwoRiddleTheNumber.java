@@ -1,7 +1,7 @@
 package test;
 
-public class Game_2_RiddleTheNumber {
-    public static void main(String[] args) {
+public class GameTwoRiddleTheNumber {
+    public static void startTheGame() {
 
         RiddleGame.welcome();
 
@@ -9,14 +9,14 @@ public class Game_2_RiddleTheNumber {
 
         do {
             userRiddle = RiddleGame.askToRiddleTheNumber();
-            if (userRiddle == String.valueOf(RiddleGame.exitValue)) {
+            if (userRiddle.equals(String.valueOf(RiddleGame.EXIT_VALUE))) {
                 App.sayGoodBye("");
                 return;
             }
         } while (!RiddleGame.checkRiddleStartFormat(userRiddle));
 
-        int min = RiddleGame.a;
-        int max = RiddleGame.b;
+        int min = RiddleGame.MIN_VALUE;
+        int max = RiddleGame.MAX_VALUE;
         int attempt = RiddleGame.createGuessNumber(min, max);
 
         RiddleGame.requestForCheck(attempt);

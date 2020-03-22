@@ -1,10 +1,9 @@
 package test;
 
-public class Game_1_GuessTheNumber {
-    public static void main(String[] args) {
+public class GameOneGuessTheNumber {
+    public static void startTheGame() {
         GuessGame.welcome();
-        int x = GuessGame.createRandomNumber();
-        System.out.println(x);
+        int randomNumber = GuessGame.createRandomNumber();
 
         int userNumber;
 
@@ -12,12 +11,12 @@ public class Game_1_GuessTheNumber {
             do {
                 userNumber = GuessGame.enterUserNumber();
             } while (!GuessGame.checkEnteredNumberFormat(userNumber));
-            if (userNumber == GuessGame.exitValue) {
+            if (userNumber == GuessGame.EXIT_VALUE) {
                 App.sayGoodBye("");
                 return;
             }
-            GuessGame.compareWithRandom(userNumber, x);
-        } while (!GuessGame.checkEnteredNumberFormat(userNumber) || userNumber != x);
+            GuessGame.compareWithRandom(userNumber, randomNumber);
+        } while (!GuessGame.checkEnteredNumberFormat(userNumber) || userNumber != randomNumber);
 
         System.out.println("Позравляем! Вы угадали число!");
     }
