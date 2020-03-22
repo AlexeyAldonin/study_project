@@ -2,8 +2,6 @@ package test;
 
 import java.util.Scanner;
 
-import static java.lang.Character.isDigit;
-
 public class UserNameAndValidation {
     String name;
 
@@ -18,7 +16,7 @@ public class UserNameAndValidation {
             return false;
         } else {
             for (int i = 0; i < name.length(); i++) {
-               if (isDigit(name.charAt(i)) || String.valueOf(name.charAt(i)) == " ") {
+               if (Character.isDigit(name.charAt(i)) || name.charAt(i) == ' ') {
                    System.out.println("Имя не должно содержать цифр и пробелов");
                    return false;
                 }
@@ -35,5 +33,12 @@ public class UserNameAndValidation {
             out.append(temp[i]);
         }
         return out.toString();
+    }
+
+    public static int enterUserIntention() {
+        System.out.println("Чтобы сыграть в игру Угадай число, введите 1.");
+        System.out.println("Чтобы сыграть в игру Загадай число, введите 2");
+        System.out.println("Для выхода введите 0.");
+        return new Scanner(System.in).nextInt();
     }
 }
