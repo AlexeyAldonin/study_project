@@ -1,5 +1,6 @@
 package test;
 
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -20,9 +21,14 @@ public class GuessGame {
     }
 
     public static int enterUserNumber() {
-        System.out.println("введите Ваш вариант числа от " + minValue + " до " + maxValue + "..." +
+        System.out.println("Введите Ваш вариант числа от " + minValue + " до " + maxValue + "..." +
                 "\nДля выхода введите " + EXIT_VALUE);
-        return new Scanner(System.in).nextInt();
+        try {
+            return new Scanner(System.in).nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Допускается ввод только цифр");
+            return enterUserNumber();
+        }
     }
     public static boolean checkEnteredNumberFormat(int enteredNumber) {
         return enteredNumber >= (minValue - 1) && enteredNumber <= maxValue;

@@ -16,7 +16,7 @@ public class GameOneGuessTheNumber {
                 return;
             }
             GuessGame.compareWithRandom(userNumber, randomNumber);
-        } while (!GuessGame.checkEnteredNumberFormat(userNumber) || userNumber != randomNumber);
+        } while (userNumber != randomNumber);
 
         System.out.println("Позравляем! Вы угадали число!");
     }

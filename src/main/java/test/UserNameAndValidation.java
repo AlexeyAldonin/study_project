@@ -1,5 +1,6 @@
 package test;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class UserNameAndValidation {
@@ -38,6 +39,11 @@ public class UserNameAndValidation {
         System.out.println("Чтобы сыграть в игру <<Угадай число>>, введите 1" +
                 "\nЧтобы сыграть в игру <<Загадай число>>, введите 2" +
                 "\nДля выхода введите 0");
-        return new Scanner(System.in).nextInt();
+        try {
+            return new Scanner(System.in).nextInt();
+        } catch (InputMismatchException e) {
+            System.out.println("Пожалуйста, вводите только цифры");
+            return enterUserIntention();
+        }
     }
 }
